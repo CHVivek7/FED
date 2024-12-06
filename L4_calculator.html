@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+        <style>
+            .calculator{
+                background-color: white;
+                width: 250px;
+                padding: 20px;
+                margin-top: 40px;
+                margin-left: 150px;
+                border: 2px solid black;
+            }
+            .display{
+                
+                height: 30px;
+                margin-left: 35px;
+                background-color: #bababa;
+                border: 2px solid black;
+                text-align: right;
+                width: 160px;
+                margin: 34px;
+                padding-right: 15px;
+                padding-top: 15px;
+            }
+            .b{
+                width: 40px;
+                height: 40px;
+            
+                background-color: #e4e4e4;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="calculator" style="text-align: center;">Calculator
+            <div class = "display" id="display">0</div>
+            <div>
+                <button class = "b" onclick="add('1')">1</button>
+                <button class = "b" onclick="add('2')">2</button>
+                <button class = "b" onclick="add('3')">3</button>
+                <button class = "b" onclick="add('+')">+</button><br>
+                <button class = "b" onclick="add('4')">4</button>
+                <button class = "b" onclick="add('5')">5</button>
+                <button class = "b" onclick="add('6')">6</button>
+                <button class = "b" onclick="add('-')">-</button><br>
+                <button class = "b" onclick="add('7')">7</button>
+                <button class = "b" onclick="add('8')">8</button>
+                <button class = "b" onclick="add('9')">9</button>
+                <button class = "b" onclick="add('*')">*</button><br>
+                <button class = "b" onclick="add('.')">.</button>
+                <button class = "b" onclick="add('0')">0</button>
+                <button class = "b" onclick="clear()">C</button>
+                <button class = "b" onclick="add('/')">/</button><br>
+                <button class = "b" onclick="add('(')">(</button>
+                <button class = "b" onclick="add(')')">)</button>
+                <button class = "b" onclick="backspcae()">CE</button>
+                <button class = "b" onclick="calculate()">=</button>
+            </div>
+        </div>
+        <script>
+            function backspcae(){
+                const display = document.getElementById('display');
+                display.innerText = display.innerText.slice(0, -1);
+            }
+            function add(value){
+                const display = document.getElementById('display');
+                if(display.innerText === '0'){
+                    display.innerText = value;
+                }else{
+                    display.innerText += value;
+                }
+            }
+            function clear(){
+                const display = document.getElementById('display');
+                display.innerText = '0';
+            }
+            function calculate(){
+                const display = document.getElementById('display');
+                try{
+                    display.innerText = eval(display.innerText);
+                }catch{
+                    display.innerText = 'Error';
+                }
+            }
+        </script>
+    </body>
+</html>

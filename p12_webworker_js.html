@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>WebWorkerDemo</title>
+    </head>
+    <body>
+        <button onclick="welcome()">welcome</button>
+        <button onclick="getValue()">generate value</button>
+        <button onclick="hi()">hai</button>
+        <script>
+        function welcome()
+        {
+            alert("Welcome to webworker");
+        }
+        function getValue()
+        {
+            var w;
+            if(typeof(Worker)!=="undefined")
+            {
+                if(typeof(w)!=="defined")
+                {
+                    w=new Worker("C:\Users\vivek\OneDrive\Desktop\FED\dowork.js");
+                    w.onmessage=function(event)
+                    {
+                        alert(event.data);
+                    }
+                }
+                else
+                {
+                    Console.log("worker is already working");
+                }
+            }
+            else
+            {
+                Console.log("not supporting webworker");
+            }
+        }
+        function hi()
+        {
+            alert("hai");
+        }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Web Storage</title>
+</head>
+<body>
+<button onClick="setData()">SET</button>
+<button onClick="getData()">GET</button>
+<p id="txt"></p>
+<script>
+function setData(){
+	if(typeof(Storage)!=="undefined"){
+		localStorage.setItem("FirstName","Vivek");
+		localStorage.setItem("LastName","Ch");
+		document.getElementById("txt").innerHTML="Your Information is Stored.";
+	}
+	else{
+		document.getElementById("txt").innerHTML="Your browser cannot store information";
+	}
+}
+function getData(){
+	if(localStorage.FirstName){
+	document.getElementById("txt").innerHTML="First Name = "+localStorage.getItem("FirstName")+"<br>Last Name = "+localStorage.getItem("LastName");
+	}
+}
+</script>
+</body>
+</html>

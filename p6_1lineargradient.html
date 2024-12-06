@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <style>
+    .container{
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(to bottom,green, yellow);
+      border-radius: 50%;
+    }
+  </style>
+<body>
+<h2>Linear Gradient</h2>
+<svg height="150" width="400">
+  <defs>
+    <linearGradient id="grad1" x1="0%" x2="100%" y1="0%" y2="0%">
+      <stop offset="0%" stop-color="blue" />
+      <stop offset="100%" stop-color="red" />
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="45" fill="url(#grad1)" />
+</svg>
+<div class="container">
+  
+</div>
+
+</body>
+</html>

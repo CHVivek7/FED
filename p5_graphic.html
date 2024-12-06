@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SVG Shapes Demo</title>
+</head>
+<body>
+    <svg width="200" height="200">
+        
+        <circle cx="50" cy="50" r="40" stroke="blue" stroke-width="4px" fill="green" id="c" onclick="getColor()" />
+    </svg>
+
+    <svg width="200" height="200">
+        <rect width="50" height="100" stroke="green" stroke-width="3px" fill="yellow" id="r" onclick="getSize()" />
+    </svg>
+
+    <svg width="200" height="200">
+        <rect x="10" y="10" width="50" height="yellow" stroke="purple" stroke-width="3px" fill="orange" id="sq" onclick="getSquareSize()" />
+    </svg>
+
+    <svg width="200" height="200">
+        <polygon points="100,10 140,50 100,90 60,50" stroke="brown" stroke-width="3px" fill="pink" id="rh" onclick="getRhombusSize()" />
+    </svg>
+
+    <svg width="200" height="200">
+        <polygon points="10,100 60,100 80,150 30,150" stroke="red" stroke-width="3px" fill="lightblue" id="pg" onclick="getParallelogramSize()" />
+    </svg>
+
+    <svg width="200" height="200">
+        <polygon points="50,10 90,90 10,90" stroke="orange" stroke-width="3px" fill="gray" id="t" onclick="getTriangleSize()" />
+    </svg>
+
+    <script>
+        function getColor() {
+            alert("The circle is filled with " + document.getElementById("c").getAttribute("fill") + " color");
+        }
+
+        function getSize() {
+            var x = parseFloat(document.getElementById("r").getAttribute("width"));
+            var y = parseFloat(document.getElementById("r").getAttribute("height"));
+            alert("The size of the rectangle is: " + x + " x " + y);
+        }
+
+        function getSquareSize() {
+            var size = parseFloat(document.getElementById("sq").getAttribute("width"));
+            alert("The size of the square is: " + size + " x " + size);
+        }
+
+        function getRhombusSize() {
+            alert("The rhombus has vertices at points: " + document.getElementById("rh").getAttribute("points"));
+        }
+
+        function getParallelogramSize() {
+            alert("The parallelogram has vertices at points: " + document.getElementById("pg").getAttribute("points"));
+        }
+
+        function getTriangleSize() {
+            alert("The triangle has vertices at points: " + document.getElementById("t").getAttribute("points"));
+        }
+    </script>
+</body>
+</html> 

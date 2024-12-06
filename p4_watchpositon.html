@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Geolocation</h1>
+<p>Click the button to get your coordinates.</p>
+<button onclick="startWatch()">Watch Position</button>
+<button onclick="clearPosition()">Clear Watch</button>
+<p id="geo"></p>
+
+<script>
+	 var wp;
+	function startWatch() {
+	
+		if (navigator.geolocation) {
+			wp=navigator.geolocation.watchPosition(showPosition,showError);
+		} else { 
+			document.getElementById("geo").innerHTML = "Geolocation is not supported by this browser.";
+		}
+	}
+
+	function showPosition(position) {
+			document.getElementById("geo").innerHTML="latitude = "+position.coords.latitude+"<br>longitude = "+position.coords.longitude+"<br>altitude = "+position.coords.altitude+"<br>accuracy = "+position.coords.accuracy+"<br>speed = "+position.coords.speed+"<br>data and time = "+position.coords.datatime;
+	}
+	function clearPosition(){
+		if(wp){
+			navigator.geolocation.clearWatch(wp);
+			document.getElementById("geo").innerHTML = "";
+			alert("Watch Position is SuccessFully Stopped");
+		}else{
+			alert("Watch position not started till at..")
+		}
+	}
+	function showError(error) {
+        switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    alert("User denied the request for Geolocation.");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                        alert("Location information is unavailable.");
+                        break;
+				case error.TIMEOUT:
+                    alert("The request to get user location timed out.");
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert("An unknown error occurred.");
+                    break;
+        }
+	}
+</script>
+</body>
+</html>

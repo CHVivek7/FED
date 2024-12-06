@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Linear Gradient Example</title>
+</head>
+<body>
+    <canvas id="l" width="400" height="400" style="border:3px solid blue"></canvas>
+    <script>
+        var canvas = document.getElementById("l");
+        var ctx = canvas.getContext("2d");
+        ctx.fillText("Hello",10,10);
+        ctx.moveTo(20,20);
+        ctx.lineTo(70,70);
+        ctx.stroke();
+    </script>
+</body>
+</html>

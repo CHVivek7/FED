@@ -1,0 +1,27 @@
+a<!DOCTYPE html>
+<html>
+<head>
+    <title>Worker Counter</title>
+    <script>
+        var worker;
+
+        function startCounter() {
+            worker = new Worker("inc.js");
+            worker.onmessage = function(event) {
+                document.getElementById("counterValue").innerHTML = event.data;
+            };
+        }
+
+        function stopCounter() {
+            worker.terminate();
+        }
+    </script>
+</head>
+<body>
+    <h1>Worker Counter</h1>
+    <p>Counter Value: <span id="counterValue">0</span></p>
+    <button onclick="startCounter()">Start</button>
+    <button onclick="stopCounter()">Stop</button>
+</body>
+</html>
+<script src="inc.js"></script>

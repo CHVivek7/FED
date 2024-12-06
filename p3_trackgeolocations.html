@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>HTML Geolocation</h1>
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Track Location</button>
+
+<p id="geo"></p>
+
+<script>
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    document.getElementById("geo").innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+		document.getElementById("geo").innerHTML="latitude = "+position.coords.latitude+"<br>longitude = "+position.coords.longitude+"<br>altitude = "+position.coords.altitude+"<br>accuracy = "+position.coords.accuracy+"<br>speed = "+position.coords.speed+"<br>data and time = "+position.coords.datatime;
+ }
+</script>
+
+</body>
+</html>

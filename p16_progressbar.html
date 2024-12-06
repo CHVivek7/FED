@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Progress</title>
+    </head>
+    <body>
+        <p>progress working</p>
+        <progress value="0" max="100"></progress>
+        <p id = "para">Task in progress 0% completed</p>
+        <button onclick="move()">Click Me</button>
+        <script>
+            function move() {
+                var prog = document.querySelector("progress");
+                var para = document.getElementById("para");
+                if(prog.value < prog.max){
+                    prog.value += 10;
+                    para.innerHTML = "Task in progress " + prog.value + "% completed";
+                } else {
+                    para.innerHTML = "Task completed";
+                }
+            }
+        </script>
+    </body>
+</html>

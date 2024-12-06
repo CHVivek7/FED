@@ -1,0 +1,43 @@
+<html>  
+    <head>  
+        <title>Event Bubbling Example</title>  
+        <style>  
+            .parent {  
+                padding: 20px;  
+                background-color: yellowgreen;  
+            }  
+            .child {  
+                padding: 20px;  
+                background-color: yellow;  
+                
+            }  
+            .grandparent {  
+                padding: 20px;  
+                background-color: red;  
+            }
+        </style>  
+    </head>  
+    <body>  
+        <div class = "grandparent" id = "grandparent">
+            Grand parent
+            <div class="parent" id="parent">  
+                Parent  
+                <div class="child" id="child">  
+                    child  
+                </div>  
+            </div>  
+        </div>
+        <script>
+            document.getElementById('parent').addEventListener('click', function() {  
+                alert('you clicked on the parent');  
+            });
+            document.getElementById('grandparent').addEventListener('click', function() {  
+                alert('you clicked on the grandparent');  
+            });
+
+            document.getElementById('child').addEventListener('click', function() {  
+                alert('you clicked on the child');  
+            });  
+        </script>  
+    </body>  
+</html> 
